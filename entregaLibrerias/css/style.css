@@ -1,0 +1,50 @@
+h1 {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+main {
+  min-height: 75vh;
+}
+
+main h2 {
+  padding-left: 1rem;
+  padding-bottom: 2rem;
+}
+
+main button {
+  background-color: #008BF7;
+  border: solid 1px;
+}
+
+.social label a {
+  font-size: 30px;
+  margin: 0px 5px;
+  line-height: 30px;
+}
+
+.copy {
+  line-height: 30px;
+}
+
+body {
+  background-color: #008BF7;
+}
+
+.productos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  background-color: #343A40;
+}
+
+.productos h4 {
+  color: white;
+}
+
+.producto {
+  margin: 10px;
+}
+/*# sourceMappingURL=style.css.map */
