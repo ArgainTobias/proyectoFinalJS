@@ -3,14 +3,14 @@ let totalCuotas = 0;
 let art = 0;
 const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 let miCarrito = new Carrito([]);
-if(!miCarrito){
+// if(!miCarrito){
 
-    miCarrito = new Carrito([]);
-}
-else{
+//     miCarrito = new Carrito([]);
+// }
+// else{
 
-    miCarrito = new Carrito(data);
-}
+//     miCarrito = new Carrito(data);
+// }
 
 
 
