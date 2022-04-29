@@ -13,6 +13,12 @@ header label i {
   text-align: end;
 }
 
+header label span {
+  width: 100%;
+  font-size: 50px;
+  text-align: end;
+}
+
 main {
   min-height: 85vh;
 }
@@ -68,6 +74,7 @@ body {
   margin: 0.5rem 1rem;
   -o-object-fit: cover;
      object-fit: cover;
+  border: solid 1px black;
 }
 
 #nosotros h2 {

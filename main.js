@@ -1,6 +1,7 @@
 let cantidadCuotas = 0;
 let totalCuotas = 0;
 let art = 0;
+const iconoCarrito = document.querySelector(".contadorCarrito");
 let [id1,id2,id3,id4] = monitores;
 let {precio:precio1} = id1;
 let {precio:precio2} = id2;
@@ -8,14 +9,14 @@ let {precio:precio3} = id3;
 let {precio:precio4} = id4;
 const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 let miCarrito = new Carrito([]);
-// if(!miCarrito){
+if(!miCarrito){
 
-//     miCarrito = new Carrito([]);
-// }
-// else{
+    miCarrito = new Carrito([]);
+}
+else{
 
-//     miCarrito = new Carrito(data);
-// }
+    miCarrito = new Carrito(data);
+}
 
 
 function calcularPrecioCuotas(){
@@ -83,6 +84,7 @@ const botonesCarrito = ()=>{
         boton.addEventListener("click", ()=>{
             
             agregarAlCarrito(monitor.id);
+            actualizarNumeroCarrito();
             swal.fire({
                 title:"Su producto ha sido agregado correctamente",
                 icon:"success"
@@ -115,8 +117,9 @@ const actualizarCarrito = ()=>{
     miCarrito.guardar();
 }
 
-const elegirMetodoDePago = ()=>{
+const actualizarNumeroCarrito = ()=>{
 
+    iconoCarrito.innerHTML = `${miCarrito.productos.length}`
 }
 
 

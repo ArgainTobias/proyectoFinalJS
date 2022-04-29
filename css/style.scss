@@ -11,6 +11,11 @@ header{
             font-size: 50px;
             text-align: end;
         }
+        span{
+            width: 100%;
+            font-size: 50px;
+            text-align: end;
+        }
     }
     
 }
@@ -69,6 +74,7 @@ body{
         width: 300px;
         margin: 0.5rem 1rem;
         object-fit: cover;
+        border: solid 1px black;
     }
     h2{
         padding: 1rem 1rem;
