@@ -76,12 +76,15 @@ const botonesCarrito = ()=>{
         div.innerHTML = `
         <img src=${monitor.imagen} style="height:120px; object-fit:cover">
         <h4>${monitor.modelo}</h4>
-        <button id="agregar${monitor.id}">Agregar producto</button>`;
+        <button id="agregar${monitor.id}">Agregar producto</button>
+        <button id="eliminar${monitor.id}">Eliminar producto</button>`;
         contenedorProductos.appendChild(div);
 
-        const boton = document.querySelector(`#agregar${monitor.id}`);
+        const botonAgregar = document.querySelector(`#agregar${monitor.id}`);
 
-        boton.addEventListener("click", ()=>{
+        const botonEliminar = document.querySelector(`#eliminar${monitor.id}`);
+
+        botonAgregar.addEventListener("click", ()=>{
             
             agregarAlCarrito(monitor.id);
             actualizarNumeroCarrito();
@@ -89,6 +92,12 @@ const botonesCarrito = ()=>{
                 title:"Su producto ha sido agregado correctamente",
                 icon:"success"
             })
+        })
+
+        botonEliminar.addEventListener("click", () => {
+
+            eliminarDelCarrito(monitor.id)
+            actualizarNumeroCarrito();
         })
     })
 }
@@ -122,8 +131,27 @@ const actualizarNumeroCarrito = ()=>{
     iconoCarrito.innerHTML = `${miCarrito.productos.length}`
 }
 
+const eliminarDelCarrito = (prodId) => {
+    const item = miCarrito.productos.find((prod) => prod.id === prodId);
+    const indice = miCarrito.productos.indexOf(item);
+    if (item === undefined || !item){
+        swal.fire({
+            title:"Ese producto no está en el carrito",
+            icon:"warning"
+        })
+    }
+    else{
+        miCarrito.productos.splice(indice, 1);
+    }
+    actualizarCarrito();
+    
+    
+}
+
 
 function init(){
+    actualizarCarrito();
+    actualizarNumeroCarrito()
     // darBienvenida();
     botonesCarrito();
     // calcularPrecioCuotas();
