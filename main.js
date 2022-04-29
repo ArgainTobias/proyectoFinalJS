@@ -1,6 +1,11 @@
 let cantidadCuotas = 0;
 let totalCuotas = 0;
 let art = 0;
+let [id1,id2,id3,id4] = monitores;
+let {precio:precio1} = id1;
+let {precio:precio2} = id2;
+let {precio:precio3} = id3;
+let {precio:precio4} = id4;
 const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 let miCarrito = new Carrito([]);
 // if(!miCarrito){
@@ -11,7 +16,6 @@ let miCarrito = new Carrito([]);
 
 //     miCarrito = new Carrito(data);
 // }
-
 
 
 function calcularPrecioCuotas(){
@@ -26,31 +30,28 @@ function calcularPrecioCuotas(){
 
     if(art === 1){
 
-        precio = monitores[0].precio;
-        totalCuotas = precio/cantidadCuotas;
-        // alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
+        totalCuotas = precio1/cantidadCuotas;
+        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
         
 
     }
     else if(art === 2){
 
-        precio = monitores[1].precio;
-        totalCuotas = precio/cantidadCuotas;
-        // alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
+        totalCuotas = precio2/cantidadCuotas;
+        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
         
 
     }
     else if(art === 3){
 
-        precio = monitores[2].precio;
-        totalCuotas = precio/cantidadCuotas;
-        // alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`)
+        totalCuotas = precio3/cantidadCuotas;
+        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`)
         
     }
     else if(art === 4){
 
-        precio = monitores[3].precio;
-        totalCuotas = precio/cantidadCuotas;
+        totalCuotas = precio4/cantidadCuotas;
+        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`)
     }
 }
 
@@ -72,7 +73,7 @@ const botonesCarrito = ()=>{
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
-        <img src=${monitor.imagen} style="height:120px">
+        <img src=${monitor.imagen} style="height:120px; object-fit:cover">
         <h4>${monitor.modelo}</h4>
         <button id="agregar${monitor.id}">Agregar producto</button>`;
         contenedorProductos.appendChild(div);
@@ -114,10 +115,15 @@ const actualizarCarrito = ()=>{
     miCarrito.guardar();
 }
 
+const elegirMetodoDePago = ()=>{
+
+}
+
 
 function init(){
-    darBienvenida();
+    // darBienvenida();
     botonesCarrito();
+    // calcularPrecioCuotas();
 }
 
 init();

@@ -1,15 +1,27 @@
-h1{
+.titulo{
+    color: black;
     text-align: center;
-    padding: 1.5rem;
+}
+
+header{
+    label{
+        width: 100%;
+        i{
+            width: 100%;
+            font-size: 50px;
+            text-align: end;
+        }
+    }
+    
 }
 
 main{
-    min-height: 75vh;
+    min-height: 85vh;
 
     h2{
-        padding-left: 1rem;
-        padding-bottom: 2rem;
-    };
+        padding: 2rem 1rem;
+        text-transform: uppercase;
+    }
 
     button{
 
@@ -46,5 +58,33 @@ body{
 }
 
 .producto{
-    margin: 10px;
+    margin:30px 5px;
+}
+
+#nosotros{
+
+    line-height: 30px;
+    img{
+        height: 200px;
+        width: 300px;
+        margin: 0.5rem 1rem;
+        object-fit: cover;
+    }
+    h2{
+        padding: 1rem 1rem;
+    }
+}
+
+.foot{
+    min-height: 15vh;
+}
+
+@media(max-width:767px){
+
+    .productos{
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
 }

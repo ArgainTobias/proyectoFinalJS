@@ -1,15 +1,25 @@
-h1 {
+.titulo {
+  color: black;
   text-align: center;
-  padding: 1.5rem;
+}
+
+header label {
+  width: 100%;
+}
+
+header label i {
+  width: 100%;
+  font-size: 50px;
+  text-align: end;
 }
 
 main {
-  min-height: 75vh;
+  min-height: 85vh;
 }
 
 main h2 {
-  padding-left: 1rem;
-  padding-bottom: 2rem;
+  padding: 2rem 1rem;
+  text-transform: uppercase;
 }
 
 main button {
@@ -45,6 +55,33 @@ body {
 }
 
 .producto {
-  margin: 10px;
+  margin: 30px 5px;
+}
+
+#nosotros {
+  line-height: 30px;
+}
+
+#nosotros img {
+  height: 200px;
+  width: 300px;
+  margin: 0.5rem 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#nosotros h2 {
+  padding: 1rem 1rem;
+}
+
+.foot {
+  min-height: 15vh;
+}
+
+@media (max-width: 767px) {
+  .productos {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
 }
 /*# sourceMappingURL=style.css.map */
