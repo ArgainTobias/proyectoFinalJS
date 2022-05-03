@@ -20,17 +20,12 @@ header label span {
 }
 
 main {
-  min-height: 85vh;
+  min-height: 110vh;
 }
 
 main h2 {
   padding: 2rem 1rem;
   text-transform: uppercase;
-}
-
-main button {
-  background-color: #008BF7;
-  border: solid 1px;
 }
 
 .social label a {
@@ -60,6 +55,18 @@ body {
   color: white;
 }
 
+.productos button {
+  background-color: #008BF7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: solid 1px black;
+}
+
 .producto {
   margin: 30px 5px;
 }
@@ -82,6 +89,7 @@ body {
 }
 
 .foot {
+  margin-top: 1rem;
   min-height: 15vh;
 }
 

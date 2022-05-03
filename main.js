@@ -88,10 +88,11 @@ const botonesCarrito = ()=>{
             
             agregarAlCarrito(monitor.id);
             actualizarNumeroCarrito();
-            swal.fire({
-                title:"Su producto ha sido agregado correctamente",
-                icon:"success"
-            })
+            Toastify({
+                text:"El producto fue agregado con éxito!",
+                duration:3000,
+                position:"left",
+            }).showToast();
         })
 
         botonEliminar.addEventListener("click", () => {

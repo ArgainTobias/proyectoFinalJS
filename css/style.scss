@@ -21,17 +21,11 @@ header{
 }
 
 main{
-    min-height: 85vh;
+    min-height: 110vh;
 
     h2{
         padding: 2rem 1rem;
         text-transform: uppercase;
-    }
-
-    button{
-
-        background-color: #008BF7;
-        border: solid 1px;
     }
 
 }
@@ -60,6 +54,18 @@ body{
     h4{
         color: white
     }
+    button{
+        
+        background-color: #008BF7;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border: solid 1px black;    
+    }
 }
 
 .producto{
@@ -82,6 +88,7 @@ body{
 }
 
 .foot{
+    margin-top: 1rem;
     min-height: 15vh;
 }
 
