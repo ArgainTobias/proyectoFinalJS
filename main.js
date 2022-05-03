@@ -85,7 +85,7 @@ const botonesCarrito = ()=>{
             div.classList.add("producto");
             div.innerHTML = `
             <img src=${monitor.imagen} style="height:120px; object-fit:cover">
-            <h4>${monitor.modelo}</h4>
+            <h4 class="modelo">${monitor.modelo}</h4>
             <button id="agregar${monitor.id}">Agregar producto</button>
             <button id="eliminar${monitor.id}">Eliminar producto</button>`;
             contenedorProductos.appendChild(div);

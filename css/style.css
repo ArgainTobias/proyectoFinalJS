@@ -1,6 +1,14 @@
 .titulo {
-  color: black;
+  color: white;
   text-align: center;
+}
+
+.contadorCarrito {
+  color: white;
+}
+
+header h1 {
+  font-family: 'Lora', serif;
 }
 
 header label {
@@ -24,6 +32,7 @@ main {
 }
 
 main h2 {
+  font-family: 'Lora', serif;
   padding: 2rem 1rem;
   text-transform: uppercase;
 }
@@ -63,8 +72,12 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   border: solid 1px black;
+}
+
+.productos .modelo {
+  font-family: 'Lora', serif;
 }
 
 .producto {
@@ -76,8 +89,8 @@ body {
 }
 
 #nosotros img {
-  height: 200px;
-  width: 300px;
+  height: 220px;
+  width: 320px;
   margin: 0.5rem 1rem;
   -o-object-fit: cover;
      object-fit: cover;
@@ -97,6 +110,10 @@ body {
   .productos {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+  }
+  #nosotros img {
+    height: 250px;
+    width: 350px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,16 @@
 .titulo{
-    color: black;
+    color: white;
     text-align: center;
 }
 
+.contadorCarrito{
+    color: white;
+}
+
 header{
+    h1{
+        font-family: 'Lora', serif;
+    }
     label{
         width: 100%;
         i{
@@ -24,6 +31,7 @@ main{
     min-height: 110vh;
 
     h2{
+        font-family: 'Lora', serif;
         padding: 2rem 1rem;
         text-transform: uppercase;
     }
@@ -63,8 +71,12 @@ body{
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-size: 12px;
         border: solid 1px black;    
+    }
+    .modelo{
+        
+        font-family: 'Lora', serif;
     }
 }
 
@@ -76,8 +88,8 @@ body{
 
     line-height: 30px;
     img{
-        height: 200px;
-        width: 300px;
+        height: 220px;
+        width: 320px;
         margin: 0.5rem 1rem;
         object-fit: cover;
         border: solid 1px black;
@@ -98,6 +110,13 @@ body{
 
         grid-template-columns: repeat(2, 1fr);
 
+    }
+
+    #nosotros{
+        img{
+            height:250px;
+            width: 350px;
+        }
     }
 
 }
