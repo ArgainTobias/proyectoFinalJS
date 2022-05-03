@@ -2,11 +2,6 @@ let cantidadCuotas = 0;
 let totalCuotas = 0;
 let art = 0;
 const iconoCarrito = document.querySelector(".contadorCarrito");
-let [id1,id2,id3,id4] = monitores;
-let {precio:precio1} = id1;
-let {precio:precio2} = id2;
-let {precio:precio3} = id3;
-let {precio:precio4} = id4;
 const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 let miCarrito = new Carrito([]);
 if(!miCarrito){
@@ -17,6 +12,18 @@ else{
 
     miCarrito = new Carrito(data);
 }
+const url = "./data/productos.json";
+
+fetch(url)
+.then((r)=>r.json())
+.then((p)=>{
+        let [id1,id2,id3,id4] = p;
+        let {precio:precio1} = id1;
+        let {precio:precio2} = id2;
+        let {precio:precio3} = id3;
+        let {precio:precio4} = id4;
+    });
+
 
 
 function calcularPrecioCuotas(){
@@ -69,45 +76,56 @@ const botonesCarrito = ()=>{
 
     const contenedorProductos = document.querySelector(".productos");
 
-    monitores.forEach((monitor)=>{
+    fetch(url)
+    .then((r)=>r.json())
+    .then((p)=>{
+        p.forEach((monitor)=>{
 
-        const div = document.createElement("div");
-        div.classList.add("producto");
-        div.innerHTML = `
-        <img src=${monitor.imagen} style="height:120px; object-fit:cover">
-        <h4>${monitor.modelo}</h4>
-        <button id="agregar${monitor.id}">Agregar producto</button>
-        <button id="eliminar${monitor.id}">Eliminar producto</button>`;
-        contenedorProductos.appendChild(div);
-
-        const botonAgregar = document.querySelector(`#agregar${monitor.id}`);
-
-        const botonEliminar = document.querySelector(`#eliminar${monitor.id}`);
-
-        botonAgregar.addEventListener("click", ()=>{
-            
-            agregarAlCarrito(monitor.id);
-            actualizarNumeroCarrito();
-            Toastify({
-                text:"El producto fue agregado con éxito!",
-                duration:3000,
-                position:"left",
-            }).showToast();
+            const div = document.createElement("div");
+            div.classList.add("producto");
+            div.innerHTML = `
+            <img src=${monitor.imagen} style="height:120px; object-fit:cover">
+            <h4>${monitor.modelo}</h4>
+            <button id="agregar${monitor.id}">Agregar producto</button>
+            <button id="eliminar${monitor.id}">Eliminar producto</button>`;
+            contenedorProductos.appendChild(div);
+    
+            const botonAgregar = document.querySelector(`#agregar${monitor.id}`);
+    
+            const botonEliminar = document.querySelector(`#eliminar${monitor.id}`);
+    
+            botonAgregar.addEventListener("click", ()=>{
+                
+                agregarAlCarrito(monitor.id);
+                actualizarNumeroCarrito();
+                Toastify({
+                    text:"El producto fue agregado con éxito!",
+                    duration:3000,
+                    position:"left",
+                }).showToast();
+            })
+    
+            botonEliminar.addEventListener("click", () => {
+    
+                eliminarDelCarrito(monitor.id)
+                actualizarNumeroCarrito();
+            })
         })
+    });
 
-        botonEliminar.addEventListener("click", () => {
-
-            eliminarDelCarrito(monitor.id)
-            actualizarNumeroCarrito();
-        })
-    })
+    
 }
 
 const agregarAlCarrito = (prodId)=>{
 
-    let item = monitores.find((prod) => prod.id === prodId);
-    miCarrito.addProducto(item);
-    actualizarCarrito();
+    fetch(url)
+    .then((r)=>r.json())
+    .then((p)=>{
+        let item = p.find((prod) => prod.id === prodId);
+        miCarrito.addProducto(item);
+        actualizarCarrito();
+    });
+    
     
 
 }
