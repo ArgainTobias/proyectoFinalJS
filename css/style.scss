@@ -60,7 +60,7 @@ body{
     text-align: center;
     background-color: #343A40;
     h4{
-        color: white
+        color: black
     }
     button{
         
@@ -71,7 +71,7 @@ body{
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 12px;
+        font-size: 11px;
         border: solid 1px black;
     }
     .modelo{
@@ -81,10 +81,19 @@ body{
     .precio{
         font-family: 'Lora', serif;
     }
+    img{
+        object-fit: cover;
+    }
 }
 
 .producto{
     margin:30px 5px;
+    padding: 10px 5px;
+    background-color: white;
+    border: black;
+}
+.producto:hover{
+    box-shadow: 5px 5px 10px #008BF7;
 }
 
 #nosotros{

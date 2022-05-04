@@ -61,7 +61,7 @@ body {
 }
 
 .productos h4 {
-  color: white;
+  color: black;
 }
 
 .productos button {
@@ -72,7 +72,7 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   border: solid 1px black;
 }
 
@@ -84,8 +84,21 @@ body {
   font-family: 'Lora', serif;
 }
 
+.productos img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .producto {
   margin: 30px 5px;
+  padding: 10px 5px;
+  background-color: white;
+  border: black;
+}
+
+.producto:hover {
+  -webkit-box-shadow: 5px 5px 10px #008BF7;
+          box-shadow: 5px 5px 10px #008BF7;
 }
 
 #nosotros {
