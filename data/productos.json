@@ -13,7 +13,7 @@
         "modelo": "24GN600-B 144Hz",
         "tamaño": 24,
         "precio": 65100,
-        "imagen":"./imagenes/monitor1.jpg",
+        "imagen":"./imagenes/monitor2.jpg",
         "id":2
     },
     {
@@ -21,7 +21,7 @@
         "modelo": "27MK400H-B",
         "tamaño": 27,
         "precio": 42800,
-        "imagen":"./imagenes/monitor1.jpg",
+        "imagen":"./imagenes/monitor3.jpg",
         "id":3
     },
     {
@@ -29,8 +29,40 @@
         "modelo": "F24T35 LED",
         "tamaño": 24,
         "precio": 35999,
-        "imagen":"./imagenes/monitor1.jpg",
+        "imagen":"./imagenes/monitor4.jpg",
         "id":4
+    },
+    {
+        "marca": "Samsung",
+        "modelo": "LS27AM500NLX",
+        "tamaño": 27,
+        "precio": 49999,
+        "imagen":"./imagenes/monitor5.jpg",
+        "id":5
+    },
+    {
+        "marca": "Phillips",
+        "modelo": "193V5LHSB2",
+        "tamaño": 19,
+        "precio": 23499,
+        "imagen":"./imagenes/monitor6.jpg",
+        "id":6
+    },
+    {
+        "marca": "LG",
+        "modelo": "24MK600M ",
+        "tamaño": 24,
+        "precio": 40999,
+        "imagen":"./imagenes/monitor7.jpg",
+        "id":7
+    },
+    {
+        "marca": "Lenovo",
+        "modelo": "G24-10",
+        "tamaño": 23.6,
+        "precio": 65812,
+        "imagen":"./imagenes/monitor8.jpg",
+        "id":8
     }
 ]
 

@@ -80,6 +80,10 @@ body {
   font-family: 'Lora', serif;
 }
 
+.productos .precio {
+  font-family: 'Lora', serif;
+}
+
 .producto {
   margin: 30px 5px;
 }
@@ -104,6 +108,10 @@ body {
 .foot {
   margin-top: 1rem;
   min-height: 15vh;
+}
+
+.foot p {
+  font-family: 'Lora', serif;
 }
 
 @media (max-width: 767px) {
