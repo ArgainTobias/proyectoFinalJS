@@ -1,30 +1,16 @@
 .titulo{
-    color: white;
     text-align: center;
-}
-
-.contadorCarrito{
-    color: white;
 }
 
 header{
     h1{
         font-family: 'Lora', serif;
     }
-    label{
+    i{
         width: 100%;
-        i{
-            width: 100%;
-            font-size: 50px;
-            text-align: end;
-        }
-        span{
-            width: 100%;
-            font-size: 50px;
-            text-align: end;
-        }
+        font-size: 50px;
+        text-align: end;
     }
-    
 }
 
 main{
@@ -32,8 +18,9 @@ main{
 
     h2{
         font-family: 'Lora', serif;
-        padding: 2rem 1rem;
+        padding: 2rem 0.5rem;
         text-transform: uppercase;
+        color: white;
     }
 
 }
@@ -41,7 +28,6 @@ main{
 .social label a {
     font-size: 30px;
     margin: 0px 5px;
-    // color: #ffffff;
     line-height: 30px;
   }
 
@@ -53,15 +39,8 @@ body{
     background-color: #008BF7;
 }
 
-.productos{
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
-    background-color: #343A40;
-    h4{
-        color: black
-    }
+.nuestrosProductos{
+    background-color:#343A40;
     button{
         
         background-color: #008BF7;
@@ -73,6 +52,19 @@ body{
         display: inline-block;
         font-size: 11px;
         border: solid 1px black;
+    }
+    #ver{
+        margin:0.5rem;
+    }
+}
+
+.productos{
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    h4{
+        color: black
     }
     .modelo{
         
@@ -96,6 +88,12 @@ body{
     box-shadow: 5px 5px 10px #008BF7;
 }
 
+.carrito{
+    margin: 0.5rem;
+    color: white;
+    display: none;
+}
+
 #nosotros{
 
     line-height: 30px;
@@ -108,6 +106,9 @@ body{
     }
     h2{
         padding: 1rem 1rem;
+    }
+    p{
+        color: white;
     }
 }
 

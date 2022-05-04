@@ -13,6 +13,9 @@ else{
     miCarrito = new Carrito(data);
 }
 const url = "./data/productos.json";
+let prods = miCarrito.productos;
+const botonVerCarrito = document.querySelector("#ver");
+const carrito = document.querySelector(".carrito");
 
 fetch(url)
 .then((r)=>r.json())
@@ -118,17 +121,28 @@ const botonesCarrito = ()=>{
 }
 
 const agregarAlCarrito = (prodId)=>{
-
     fetch(url)
     .then((r)=>r.json())
     .then((p)=>{
-        let item = p.find((prod) => prod.id === prodId);
-        miCarrito.addProducto(item);
-        actualizarCarrito();
-    });
-    
-    
 
+        const existe = prods.some (prod => prod.id === prodId);
+        if(existe){
+
+            const prod = prods.map(prod => {
+
+                if(prod.id === prodId){
+                    
+                    prod.cantidad++
+                }
+            })
+        }
+        else{
+            let item = p.find((prod) => prod.id === prodId);
+            miCarrito.addProducto(item);
+        }
+    });
+    actualizarCarrito();
+    
 }
 
 const actualizarCarrito = ()=>{
@@ -136,11 +150,10 @@ const actualizarCarrito = ()=>{
     let contenedor = document.getElementById("carritoDeCompras");
     contenedor.innerHTML = "";
 
-    let prods = miCarrito.productos;
     prods.forEach(monitor=>{
 
         let nodoLi = document.createElement("div");
-        nodoLi.innerHTML = `${monitor.modelo} - $${monitor.precio}`;
+        nodoLi.innerHTML = `${monitor.modelo} - $${monitor.precio} - Cantidad:${monitor.cantidad}`
         contenedor.appendChild(nodoLi);
     })
     miCarrito.guardar();
@@ -148,12 +161,12 @@ const actualizarCarrito = ()=>{
 
 const actualizarNumeroCarrito = ()=>{
 
-    iconoCarrito.innerHTML = `${miCarrito.productos.length}`
+    iconoCarrito.innerHTML = `${prods.length}`
 }
 
 const eliminarDelCarrito = (prodId) => {
-    const item = miCarrito.productos.find((prod) => prod.id === prodId);
-    const indice = miCarrito.productos.indexOf(item);
+    const item = prods.find((prod) => prod.id === prodId);
+    const indice = prods.indexOf(item);
     if (item === undefined || !item){
         swal.fire({
             title:"Ese producto no está en el carrito",
@@ -163,11 +176,8 @@ const eliminarDelCarrito = (prodId) => {
     else{
         miCarrito.productos.splice(indice, 1);
     }
-    actualizarCarrito();
-    
-    
+    actualizarCarrito();   
 }
-
 
 function init(){
     actualizarCarrito();
