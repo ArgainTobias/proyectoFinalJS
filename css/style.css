@@ -12,6 +12,16 @@ header i {
   text-align: end;
 }
 
+#carritoDeCompras {
+  line-height: 30px;
+}
+
+#carritoDeCompras i {
+  font-size: 24px;
+  color: red;
+  margin: 8px;
+}
+
 main {
   min-height: 110vh;
 }
@@ -21,6 +31,10 @@ main h2 {
   padding: 2rem 0.5rem;
   text-transform: uppercase;
   color: white;
+}
+
+.modal h5 {
+  font-family: 'Lora', serif;
 }
 
 .social label a {

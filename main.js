@@ -16,6 +16,7 @@ const url = "./data/productos.json";
 let prods = miCarrito.productos;
 const botonVerCarrito = document.querySelector("#ver");
 const carrito = document.querySelector(".carrito");
+const botonVaciarCarrito = document.querySelector("#botonVaciar");
 
 fetch(url)
 .then((r)=>r.json())
@@ -28,61 +29,15 @@ fetch(url)
     });
 
 
-
-function calcularPrecioCuotas(){
-
-    cantidadCuotas = parseInt(prompt("Indique la cantidad de cuotas mediante las que desea abonar (1, 3, 6 o 12): ")); 
-
-    while(cantidadCuotas !== 1 && cantidadCuotas !== 3 && cantidadCuotas !== 6 && cantidadCuotas !== 12){
-
-        cantidadCuotas = parseInt(prompt("Indique la cantidad de cuotas mediante las que desea abonar (1, 3, 6 o 12): "));
-
-    }
-
-    if(art === 1){
-
-        totalCuotas = precio1/cantidadCuotas;
-        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
-        
-
-    }
-    else if(art === 2){
-
-        totalCuotas = precio2/cantidadCuotas;
-        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`);
-        
-
-    }
-    else if(art === 3){
-
-        totalCuotas = precio3/cantidadCuotas;
-        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`)
-        
-    }
-    else if(art === 4){
-
-        totalCuotas = precio4/cantidadCuotas;
-        alert(`Usted debe abonar ${cantidadCuotas} cuotas de $${totalCuotas}`)
-    }
-}
-
-function darBienvenida(){
-
-    let nombre = prompt(`Ingresa tu nombre: `);
-    const myTitle = document.getElementById("titulo");
-    myTitle.innerText += ` ${nombre}, al carrito de compras`;
-}
-
-
-
 const botonesCarrito = ()=>{
+    //esta funcion inserta los productos con sus imagenes y botones de "agregar producto" en el documento HTML, tmabién le da su funcionalidad a este último botón. Los datos de los productos son tomados de un documento en formato JSON mediante un fetch
 
     const contenedorProductos = document.querySelector(".productos");
 
     fetch(url)
     .then((r)=>r.json())
-    .then((p)=>{
-        p.forEach((monitor)=>{
+    .then((monitores)=>{
+        monitores.forEach((monitor)=>{
 
             const div = document.createElement("div");
             div.classList.add("producto");
@@ -90,13 +45,10 @@ const botonesCarrito = ()=>{
             <img src=${monitor.imagen} style="height:120px; object-fit:cover">
             <h4 class="modelo">${monitor.modelo}</h4>
             <h4 class="precio">$${monitor.precio}</h4>
-            <button id="agregar${monitor.id}">Agregar producto</button>
-            <button id="eliminar${monitor.id}">Eliminar producto</button>`;
+            <button id="agregar${monitor.id}">Agregar producto</button>`;
             contenedorProductos.appendChild(div);
     
             const botonAgregar = document.querySelector(`#agregar${monitor.id}`);
-    
-            const botonEliminar = document.querySelector(`#eliminar${monitor.id}`);
     
             botonAgregar.addEventListener("click", ()=>{
                 
@@ -108,12 +60,6 @@ const botonesCarrito = ()=>{
                     position:"left",
                 }).showToast();
             })
-    
-            botonEliminar.addEventListener("click", () => {
-    
-                eliminarDelCarrito(monitor.id)
-                actualizarNumeroCarrito();
-            })
         })
     });
 
@@ -121,9 +67,11 @@ const botonesCarrito = ()=>{
 }
 
 const agregarAlCarrito = (prodId)=>{
+    // esta funcion verifica si el producto agregado ya se encontraba en el carrito, de ser así, incrementa la cantidad de este producto en 1 y de no estar ya agregado este producto, lo agrega al carrito.
+
     fetch(url)
     .then((r)=>r.json())
-    .then((p)=>{
+    .then((monitores)=>{
 
         const existe = prods.some (prod => prod.id === prodId);
         if(existe){
@@ -137,12 +85,11 @@ const agregarAlCarrito = (prodId)=>{
             })
         }
         else{
-            let item = p.find((prod) => prod.id === prodId);
+            let item = monitores.find((prod) => prod.id === prodId);
             miCarrito.addProducto(item);
         }
+        actualizarCarrito();
     });
-    actualizarCarrito();
-    
 }
 
 const actualizarCarrito = ()=>{
@@ -153,9 +100,23 @@ const actualizarCarrito = ()=>{
     prods.forEach(monitor=>{
 
         let nodoLi = document.createElement("div");
-        nodoLi.innerHTML = `${monitor.modelo} - $${monitor.precio} - Cantidad:${monitor.cantidad}`
+        nodoLi.innerHTML = `${monitor.modelo} - $${monitor.precio} - Cantidad:${monitor.cantidad}<i class="fa-solid fa-circle-minus" id="eliminar${monitor.id}"></i>`
         contenedor.appendChild(nodoLi);
+
+        const botonEliminar = document.querySelector(`#eliminar${monitor.id}`);
+
+        botonEliminar.addEventListener("click", () => {
+            
+            if(monitor.cantidad>1){
+                monitor.cantidad--;
+            }
+            else{
+                eliminarDelCarrito(monitor.id);
+            }
+            actualizarCarrito();
+        })
     })
+    actualizarNumeroCarrito();
     miCarrito.guardar();
 }
 
@@ -179,12 +140,17 @@ const eliminarDelCarrito = (prodId) => {
     actualizarCarrito();   
 }
 
+const vaciarCarrito = () =>{
+    
+    const botonVaciarCarrito = document.querySelector("#botonVaciar");
+    botonVaciarCarrito.addEventListener("click", ()=>{prods.length = 0; actualizarCarrito();});
+}
+
 function init(){
     actualizarCarrito();
     actualizarNumeroCarrito()
-    // darBienvenida();
     botonesCarrito();
-    // calcularPrecioCuotas();
+    vaciarCarrito();
 }
 
 init();
