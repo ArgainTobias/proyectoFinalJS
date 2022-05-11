@@ -17,6 +17,7 @@ let prods = miCarrito.productos;
 const botonVerCarrito = document.querySelector("#ver");
 const carrito = document.querySelector(".carrito");
 const botonVaciarCarrito = document.querySelector("#botonVaciar");
+const botonFinalizarCompra = document.querySelector("#botonFinalizar");
 
 fetch(url)
 .then((r)=>r.json())
@@ -27,7 +28,6 @@ fetch(url)
         let {precio:precio3} = id3;
         let {precio:precio4} = id4;
     });
-
 
 const botonesCarrito = ()=>{
     //esta funcion inserta los productos con sus imagenes y botones de "agregar producto" en el documento HTML, tmabién le da su funcionalidad a este último botón. Los datos de los productos son tomados de un documento en formato JSON mediante un fetch
@@ -140,17 +140,54 @@ const eliminarDelCarrito = (prodId) => {
     actualizarCarrito();   
 }
 
-const vaciarCarrito = () =>{
+const botonesModal = () =>{
     
-    const botonVaciarCarrito = document.querySelector("#botonVaciar");
     botonVaciarCarrito.addEventListener("click", ()=>{prods.length = 0; actualizarCarrito();});
+
+    botonFinalizarCompra.addEventListener("click", ()=>{
+        
+        swal.fire({
+
+            title:"¿Seguro desea finalizar su compra?",
+            showCancelButton:true,
+            confirmButtonText:"Sí, estoy seguro",
+            cancelButtonText:"No, quiero seguir comprando",
+            icon:"warning"
+        }).then((result) => {
+
+            if(result.isConfirmed){
+
+                if(prods.length > 0){
+                    swal.fire({
+                        title:"Compra finalizada",
+                        text:"Gracias por elegirnos, le enviaremos un mail con la confirmación de su compra",
+                        icon:"success"
+                    });
+                    prods.length = 0;
+                    actualizarCarrito();
+                }
+                else{
+                    swal.fire({
+                        title:"Compra no finalizada",
+                        text:"Debe seleccionar al menos un producto para poder finalizar la compra",
+                        icon:"warning"
+                    });
+                }
+            }
+        })
+        
+    })
+
+
 }
 
 function init(){
     actualizarCarrito();
     actualizarNumeroCarrito()
     botonesCarrito();
-    vaciarCarrito();
+    botonesModal();
 }
 
 init();
+
+

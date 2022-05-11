@@ -1,3 +1,9 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
 .titulo{
     text-align: center;
 }
@@ -67,6 +73,7 @@ body{
         display: inline-block;
         font-size: 11px;
         border: solid 1px black;
+        text-transform: uppercase;
     }
     #ver{
         margin:0.5rem;
@@ -78,6 +85,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
+    margin: 10px;
     h4{
         color: black
     }
@@ -124,6 +132,7 @@ body{
     }
     p{
         color: white;
+        padding: 10px;
     }
 }
 

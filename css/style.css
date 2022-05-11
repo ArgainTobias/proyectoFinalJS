@@ -1,3 +1,10 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .titulo {
   text-align: center;
 }
@@ -65,6 +72,7 @@ body {
   display: inline-block;
   font-size: 11px;
   border: solid 1px black;
+  text-transform: uppercase;
 }
 
 .nuestrosProductos #ver {
@@ -77,6 +85,7 @@ body {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   text-align: center;
+  margin: 10px;
 }
 
 .productos h4 {
@@ -133,6 +142,7 @@ body {
 
 #nosotros p {
   color: white;
+  padding: 10px;
 }
 
 .foot {
