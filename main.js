@@ -1,6 +1,9 @@
 let cantidadCuotas = 0;
 let totalCuotas = 0;
 let art = 0;
+let precioTotal = 0;
+let precioProd = 0;
+const nodoPrecioTotal = document.querySelector("#precioTotal");
 const iconoCarrito = document.querySelector(".contadorCarrito");
 const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 let miCarrito = new Carrito([]);
@@ -53,7 +56,7 @@ const botonesCarrito = ()=>{
             botonAgregar.addEventListener("click", ()=>{
                 
                 agregarAlCarrito(monitor.id);
-                actualizarNumeroCarrito();
+                actualizarCarrito();
                 Toastify({
                     text:"El producto fue agregado con éxito!",
                     duration:3000,
@@ -79,7 +82,6 @@ const agregarAlCarrito = (prodId)=>{
             const prod = prods.map(prod => {
 
                 if(prod.id === prodId){
-                    
                     prod.cantidad++
                 }
             })
@@ -116,14 +118,16 @@ const actualizarCarrito = ()=>{
             actualizarCarrito();
         })
     })
-    actualizarNumeroCarrito();
+    iconoCarrito.innerHTML = `${prods.length}`;
+    precioTotal = prods.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+    nodoPrecioTotal.innerText = `Precio total: $${precioTotal}`;
     miCarrito.guardar();
 }
 
-const actualizarNumeroCarrito = ()=>{
+// const actualizarNumeroCarrito = ()=>{
+//     iconoCarrito.innerHTML = `${prods.length}`
 
-    iconoCarrito.innerHTML = `${prods.length}`
-}
+// }
 
 const eliminarDelCarrito = (prodId) => {
     const item = prods.find((prod) => prod.id === prodId);
@@ -183,7 +187,6 @@ const botonesModal = () =>{
 
 function init(){
     actualizarCarrito();
-    actualizarNumeroCarrito()
     botonesCarrito();
     botonesModal();
 }
