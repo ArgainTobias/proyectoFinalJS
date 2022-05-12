@@ -1,7 +1,3 @@
-let cantidadCuotas = 0;
-let totalCuotas = 0;
-let art = 0;
-let precioTotal = 0;
 let precioProd = 0;
 const nodoPrecioTotal = document.querySelector("#precioTotal");
 const iconoCarrito = document.querySelector(".contadorCarrito");
@@ -16,7 +12,7 @@ else{
     miCarrito = new Carrito(data);
 }
 const url = "./data/productos.json";
-let prods = miCarrito.productos;
+// let prods = miCarrito.productos;
 const botonVerCarrito = document.querySelector("#ver");
 const carrito = document.querySelector(".carrito");
 const botonVaciarCarrito = document.querySelector("#botonVaciar");
@@ -76,10 +72,10 @@ const agregarAlCarrito = (prodId)=>{
     .then((r)=>r.json())
     .then((monitores)=>{
 
-        const existe = prods.some (prod => prod.id === prodId);
+        const existe = data.some (prod => prod.id === prodId);
         if(existe){
 
-            const prod = prods.map(prod => {
+            const prod = data.map(prod => {
 
                 if(prod.id === prodId){
                     prod.cantidad++
@@ -99,7 +95,7 @@ const actualizarCarrito = ()=>{
     let contenedor = document.getElementById("carritoDeCompras");
     contenedor.innerHTML = "";
 
-    prods.forEach(monitor=>{
+    data.forEach(monitor=>{
 
         let nodoLi = document.createElement("div");
         nodoLi.innerHTML = `${monitor.modelo} - $${monitor.precio} - Cantidad:${monitor.cantidad}<i class="fa-solid fa-circle-minus" id="eliminar${monitor.id}"></i>`
@@ -118,20 +114,15 @@ const actualizarCarrito = ()=>{
             actualizarCarrito();
         })
     })
-    iconoCarrito.innerHTML = `${prods.length}`;
-    precioTotal = prods.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+    iconoCarrito.innerHTML = `${data.length}`;
+    precioTotal = data.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
     nodoPrecioTotal.innerText = `Precio total: $${precioTotal}`;
     miCarrito.guardar();
 }
 
-// const actualizarNumeroCarrito = ()=>{
-//     iconoCarrito.innerHTML = `${prods.length}`
-
-// }
-
 const eliminarDelCarrito = (prodId) => {
-    const item = prods.find((prod) => prod.id === prodId);
-    const indice = prods.indexOf(item);
+    const item = data.find((prod) => prod.id === prodId);
+    const indice = data.indexOf(item);
     if (item === undefined || !item){
         swal.fire({
             title:"Ese producto no está en el carrito",
@@ -146,7 +137,7 @@ const eliminarDelCarrito = (prodId) => {
 
 const botonesModal = () =>{
     
-    botonVaciarCarrito.addEventListener("click", ()=>{prods.length = 0; actualizarCarrito();});
+    botonVaciarCarrito.addEventListener("click", ()=>{data.length = 0; actualizarCarrito();});
 
     botonFinalizarCompra.addEventListener("click", ()=>{
         
@@ -161,13 +152,13 @@ const botonesModal = () =>{
 
             if(result.isConfirmed){
 
-                if(prods.length > 0){
+                if(data.length > 0){
                     swal.fire({
                         title:"Compra finalizada",
                         text:"Gracias por elegirnos, le enviaremos un mail con la confirmación de su compra",
                         icon:"success"
                     });
-                    prods.length = 0;
+                    data.length = 0;
                     actualizarCarrito();
                 }
                 else{
