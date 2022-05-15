@@ -46,8 +46,12 @@ main h2 {
 
 .social label a {
   font-size: 30px;
-  margin: 0px 5px;
+  margin: 0px 15px;
   line-height: 30px;
+}
+
+.social label a i {
+  font-size: 35px;
 }
 
 .copy {
@@ -73,6 +77,7 @@ body {
   font-size: 11px;
   border: solid 1px black;
   text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .nuestrosProductos #ver {
@@ -110,6 +115,7 @@ body {
   padding: 10px 5px;
   background-color: white;
   border: black;
+  border-radius: 5px;
 }
 
 .producto:hover {
@@ -143,6 +149,46 @@ body {
 #nosotros p {
   color: white;
   padding: 10px;
+}
+
+#contacto {
+  margin: 2rem;
+}
+
+#contacto div {
+  border-radius: 5px;
+  text-align: center;
+}
+
+#contacto form {
+  text-align: center;
+}
+
+#contacto form input {
+  display: inline-block;
+  margin-bottom: 1rem;
+  width: 25rem;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#contacto form textarea {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#contacto form button {
+  display: inline-block;
+  background-color: #008BF7;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  border: solid 1px black;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .foot {

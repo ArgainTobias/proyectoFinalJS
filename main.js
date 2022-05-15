@@ -9,6 +9,7 @@ const botonVerCarrito = document.querySelector("#ver");
 const carrito = document.querySelector(".carrito");
 const botonVaciarCarrito = document.querySelector("#botonVaciar");
 const botonFinalizarCompra = document.querySelector("#botonFinalizar");
+const botonFormulario = document.querySelector("#enviar");
 
 const botonesCarrito = ()=>{
     //esta funcion inserta los productos con sus imagenes y botones de "agregar producto" en el documento HTML, tmabién le da su funcionalidad a este último botón. Los datos de los productos son tomados de un documento en formato JSON mediante un fetch
@@ -37,7 +38,7 @@ const botonesCarrito = ()=>{
                 actualizarCarrito();
                 Toastify({
                     text:"El producto fue agregado con éxito!",
-                    duration:3000,
+                    duration:1500,
                     position:"left",
                 }).showToast();
             })
@@ -154,14 +155,40 @@ const botonesModal = () =>{
         })
         
     })
+}
 
+const enviarFormulario = () => {
 
+    const nombre = document.querySelector("#nombre");
+    const telefono = document.querySelector("#telefono");
+    const mail = document.querySelector("#mail");
+    const consulta = document.querySelector("#consulta");
+
+    botonFormulario.addEventListener("click", () => {
+
+        if(nombre.value.trim() !=="" && telefono.value.length >= 8 && consulta.value.length >= 12 && mail.value.length >= 5 && mail.value.search("@")!== -1){
+            swal.fire({
+                title:"Su consulta fue recibida con éxito",
+                text:"Enviaremos su respuesta lo antes posible",
+                icon:"success",
+            })
+        }
+        // else{
+        //     swal.fire({
+        //         title:"Error al enviar su consulta",
+        //         text:"Por favor, complete bien todos los campos",
+        //         icon:"warning"
+        //     })
+        // }
+            
+    })
 }
 
 function init(){
     botonesCarrito();
     actualizarCarrito();
     botonesModal();
+    enviarFormulario();
 }
 
 init();

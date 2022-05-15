@@ -48,9 +48,12 @@ main{
 
 .social label a {
     font-size: 30px;
-    margin: 0px 5px;
+    margin: 0px 15px;
     line-height: 30px;
-  }
+    i{
+        font-size: 35px;
+    }
+}
 
 .copy{
     line-height: 30px;
@@ -62,8 +65,7 @@ body{
 
 .nuestrosProductos{
     background-color:#343A40;
-    button{
-        
+    button{        
         background-color: #008BF7;
         border: none;
         color: white;
@@ -74,6 +76,7 @@ body{
         font-size: 11px;
         border: solid 1px black;
         text-transform: uppercase;
+        border-radius: 5px;
     }
     #ver{
         margin:0.5rem;
@@ -106,6 +109,7 @@ body{
     padding: 10px 5px;
     background-color: white;
     border: black;
+    border-radius: 5px;
 }
 .producto:hover{
     box-shadow: 5px 5px 10px #008BF7;
@@ -135,6 +139,44 @@ body{
         padding: 10px;
     }
 }
+
+#contacto{
+    margin: 2rem;
+    div{
+        border-radius: 5px;
+        text-align: center;
+
+    }
+    form{
+        text-align: center;
+        input{
+            display: inline-block;
+            margin-bottom: 1rem;
+            width: 25rem;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        textarea{
+            border-radius: 5px;
+            padding: 5px;
+        }
+        button{
+            display: inline-block;
+            background-color: #008BF7;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 11px;
+            border: solid 1px black;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+    }
+}
+
+
 
 .foot{
     margin-top: 1rem;
