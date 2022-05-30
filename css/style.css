@@ -5,6 +5,11 @@
           box-sizing: border-box;
 }
 
+body {
+  background-color: #008BF7;
+  overflow-x: hidden;
+}
+
 .titulo {
   text-align: center;
 }
@@ -56,10 +61,6 @@ main h2 {
 
 .copy {
   line-height: 30px;
-}
-
-body {
-  background-color: #008BF7;
 }
 
 .nuestrosProductos {
@@ -175,6 +176,8 @@ body {
 #contacto form textarea {
   border-radius: 5px;
   padding: 5px;
+  height: 200px;
+  width: 25rem;
 }
 
 #contacto form button {
@@ -208,6 +211,13 @@ body {
   #nosotros img {
     height: 250px;
     width: 350px;
+  }
+  #contacto form input {
+    width: 300px;
+  }
+  #contacto form textarea {
+    height: 200px;
+    width: 300px;
   }
 }
 /*# sourceMappingURL=style.css.map */

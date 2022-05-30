@@ -4,7 +4,6 @@ const iconoCarrito = document.querySelector(".contadorCarrito");
 const data = JSON.parse(localStorage.getItem("MI_CARRITO")) || [];
 let miCarrito = new Carrito(data);
 const url = "./data/productos.json";
-// let prods = miCarrito.productos;
 const botonVerCarrito = document.querySelector("#ver");
 const carrito = document.querySelector(".carrito");
 const botonVaciarCarrito = document.querySelector("#botonVaciar");
@@ -172,15 +171,7 @@ const enviarFormulario = () => {
                 text:"Enviaremos su respuesta lo antes posible",
                 icon:"success",
             })
-        }
-        // else{
-        //     swal.fire({
-        //         title:"Error al enviar su consulta",
-        //         text:"Por favor, complete bien todos los campos",
-        //         icon:"warning"
-        //     })
-        // }
-            
+        }            
     })
 }
 
