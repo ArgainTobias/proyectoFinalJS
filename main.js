@@ -3,12 +3,11 @@ const nodoPrecioTotal = document.querySelector("#precioTotal");
 const iconoCarrito = document.querySelector(".contadorCarrito");
 const data = JSON.parse(localStorage.getItem("MI_CARRITO")) || [];
 let miCarrito = new Carrito(data);
-const url = "./data/productos.json";
 const botonVerCarrito = document.querySelector("#ver");
-const carrito = document.querySelector(".carrito");
 const botonVaciarCarrito = document.querySelector("#botonVaciar");
 const botonFinalizarCompra = document.querySelector("#botonFinalizar");
 const botonFormulario = document.querySelector("#enviar");
+const url = "./data/productos.json";
 
 const botonesCarrito = ()=>{
     //esta funcion inserta los productos con sus imagenes y botones de "agregar producto" en el documento HTML, tmabién le da su funcionalidad a este último botón. Los datos de los productos son tomados de un documento en formato JSON mediante un fetch
